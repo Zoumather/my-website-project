@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>คลังความรู้คอมพิวเตอร์ – คลิกแก้</title>
+<meta name="theme-color" content="#2f46ff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='10' fill='%232f46ff'/%3E%3Cpath d='M11 8l13 7.5-5.6 1.6 3.4 5.9-2.9 1.7-3.4-5.9L11 23z' fill='%23fff'/%3E%3Ccircle cx='25' cy='9' r='3' fill='%237fd4ff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f3f1ea;--ink:#14141b;--card:#fff;--muted:#666672;--line:#e1ded3;--blue:#2f46ff;--accent:#2f46ff;--lime:#7fd4ff;--bubble:#e3f4ff;--ok:#1f7a4d;--bad:#b3402a;--signal:#a86a00;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -13,7 +15,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 :root[data-theme="dark"]{--bg:#0e0e14;--ink:#f1f1f5;--card:#181822;--muted:#9a9aa8;--line:#2b2b3a;--accent:#9aa8ff;--bubble:#12303f;--ok:#5ed39a;--bad:#ff8a70;--signal:#f2b84b}
 *{box-sizing:border-box}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Anuphan,"Noto Sans Thai",system-ui,Tahoma,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Kanit,"Noto Sans Thai",system-ui,Tahoma,sans-serif}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .tbox :focus-visible{outline-color:var(--lime)}
@@ -188,28 +190,204 @@ th{font-weight:600;color:var(--muted);font-size:14px;border-top:0}
 #klist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
 .back{display:inline-block;margin-top:6px}
 footer .views{margin-bottom:6px}footer .views b{color:var(--ink)}
+
+/* ===== ตีมเดียวกับหน้าแก้ปัญหา ===== */
+.menu{display:none}
+@media(max-width:640px){
+  .menu{display:inline-block}
+  .top nav{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);flex-direction:column;align-items:stretch;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 18px 40px -20px rgba(0,0,0,.5)}
+  .top nav.open{display:flex}
+  .top nav a{display:block;padding:12px 14px;color:var(--ink)}
+  .top nav .theme{margin-top:4px;padding:10px 14px}
+}
+/* ===== layout แบบหน้าแรกเกม: header โปร่ง + hero เต็มจอ + แถบข้าง ===== */
+:root{--sky1:#2a8cff;--sky2:#cfeaff;--cloud:#fff;--g1:#6fd36a;--g2:#3fae4f;--stage-ink:#10205f;--stars:0}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#070b2a;--sky2:#2b3b94;--cloud:#3a4aa8;--g1:#1f5b52;--g2:#123d3b;--stage-ink:#e8edff;--stars:1}}
+:root[data-theme="dark"]{--sky1:#070b2a;--sky2:#2b3b94;--cloud:#3a4aa8;--g1:#1f5b52;--g2:#123d3b;--stage-ink:#e8edff;--stars:1}
+body{overflow-x:clip}
+.top{position:fixed;top:0;left:0;right:0;margin:0;border:0;border-bottom:1px solid transparent;border-radius:0;background:transparent;box-shadow:none;z-index:15;justify-content:flex-start;gap:14px;padding:calc(env(safe-area-inset-top,0px) + 12px) max(20px,calc((100% - 1200px)/2)) 12px;transition:background .25s,border-color .25s}
+.top.sc{background:var(--card);background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+.top nav{flex:1;display:flex;align-items:center;gap:4px}
+.top #ctnav{margin-left:auto}
+.top:not(.sc) .logo,.top:not(.sc) nav a:not(.pill){color:#fff;text-shadow:0 1px 8px rgba(0,30,90,.35)}
+.top:not(.sc) nav a:not(.pill):hover{background:rgba(255,255,255,.2);color:#fff}
+.top:not(.sc) .theme{color:#fff;border-color:rgba(255,255,255,.65)}
+.top #ctnav,.pill{background:linear-gradient(135deg,#7fd4ff,#3aa7ff);color:#0b2a55;border:0;font-weight:700;border-radius:999px;padding:7px 18px;box-shadow:0 3px 0 rgba(0,60,140,.28);text-decoration:none;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s}
+.top #ctnav,.top .pill{color:#0b2a55}
+.pill.p2{background:linear-gradient(135deg,#5a6dff,#2f46ff);color:#fff!important;font-size:15px;margin-left:4px}
+.top #ctnav:hover,.pill:hover{transform:translateY(-2px)}
+.stage{position:relative;margin:0 calc(50% - 50vw) 40px;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 190px;background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 100%);overflow:hidden;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:0;z-index:0;opacity:var(--stars);pointer-events:none;background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff,transparent),radial-gradient(1.4px 1.4px at 28% 9%,#fff,transparent),radial-gradient(1.8px 1.8px at 47% 22%,#fff,transparent),radial-gradient(1.4px 1.4px at 63% 8%,#fff,transparent),radial-gradient(1.8px 1.8px at 78% 20%,#fff,transparent),radial-gradient(1.4px 1.4px at 91% 12%,#fff,transparent),radial-gradient(1.4px 1.4px at 8% 40%,#fff,transparent),radial-gradient(1.6px 1.6px at 93% 44%,#fff,transparent)}
+.cl{position:absolute;color:var(--cloud);opacity:.92;z-index:0}
+.cl svg{display:block;width:100%;height:auto}
+.c1{top:15%;left:5%;width:230px;animation:drift 38s ease-in-out infinite alternate}
+.c2{top:9%;right:9%;width:300px;animation:drift 46s ease-in-out infinite alternate-reverse}
+.c3{top:50%;left:30%;width:190px;opacity:.65;animation:drift 52s ease-in-out infinite alternate}
+.c4{top:56%;right:24%;width:250px;opacity:.7;animation:drift 44s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translateX(70px)}}
+.grass{position:absolute;left:0;right:0;bottom:0;height:170px;z-index:1;pointer-events:none}
+.grass svg{width:100%;height:100%;display:block}
+.deco{position:absolute;bottom:56px;width:clamp(150px,24vw,340px);z-index:1;pointer-events:none}
+.deco svg{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(10,20,100,.3))}
+.dl{left:3vw}.dr{right:8vw}
+.bob{animation:bob 5s ease-in-out infinite}.bob2{animation:bob 6.5s ease-in-out -2s infinite}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.stage-in{position:relative;z-index:2;width:100%;max-width:900px}
+.kick{display:inline-block;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);color:var(--stage-ink);font-weight:600;border-radius:999px;padding:4px 18px;margin:0 0 6px;backdrop-filter:blur(4px)}
+.big{font-size:clamp(44px,10vw,108px);line-height:1.14;margin:6px 0 12px;color:#fff;letter-spacing:-.01em;text-shadow:0 5px 0 #2f46ff,0 10px 0 rgba(28,43,184,.55),0 20px 34px rgba(10,20,100,.45)}
+.ribbon{margin:6px -20px 14px;padding:10px 40px;background:linear-gradient(90deg,transparent,rgba(47,70,255,.88) 14%,rgba(47,70,255,.88) 86%,transparent);color:#fff;font-weight:700;font-size:clamp(17px,2.6vw,28px)}
+.tagl{margin:4px 0 0;color:var(--stage-ink);font-weight:700;font-size:clamp(16px,2vw,21px)}
+.lead2{margin:0;color:var(--stage-ink);opacity:.85}
+.stage .search{margin:20px auto 0;justify-content:center}
+.stage .hint{color:var(--stage-ink);text-align:center}
+.stage .hint button{color:inherit;font-weight:600}
+.stage #hit{max-width:620px;margin:16px auto 0;text-align:left}
+.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.cb3{display:flex;align-items:center;gap:12px;min-width:250px;text-align:left;text-decoration:none;color:#fff;padding:10px 28px 10px 12px;border-radius:999px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 12px 24px -12px rgba(0,0,40,.6);transition:transform .2s}
+.cb3:hover{transform:translateY(-4px) scale(1.02)}
+.cb3 i{flex:none;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:26px;font-style:normal}
+.cb3 small{display:block;font-size:13px;font-weight:600;line-height:1.3}
+.cb3 b{display:block;font-size:24px;line-height:1.2}
+.cb3.a{background:linear-gradient(135deg,#4d63ff,#2f46ff)}
+.cb3.b{background:linear-gradient(135deg,#43b9ff,#1f8ee6)}
+.cb3.c{background:linear-gradient(135deg,#7b6bff,#4b3fd1)}
+.side{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:10px}
+.side a{display:flex;align-items:center;height:42px;min-width:42px;border-radius:999px;background:var(--card);border:2px solid var(--line);color:var(--ink);text-decoration:none;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);overflow:hidden;transition:background .2s,border-color .2s,color .2s}
+.side i{flex:none;width:38px;height:38px;display:grid;place-items:center;font-style:normal;font-size:17px}
+.side span{max-width:0;opacity:0;white-space:nowrap;font-size:14px;font-weight:600;transition:max-width .25s,opacity .2s,padding .25s}
+.side a:hover span,.side a.on span{max-width:120px;opacity:1;padding-right:14px}
+.side a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:1100px){.side{display:none}}
+.dn{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:48px;height:48px;border-radius:50%;border:3px solid #fff;background:var(--blue);display:grid;place-items:center;cursor:pointer;z-index:10;box-shadow:0 8px 18px -8px rgba(0,0,0,.6);transition:opacity .25s,transform .25s;animation:hop 1.8s ease-in-out infinite}
+.dn.hide{opacity:0;pointer-events:none;transform:translateY(10px)}
+@keyframes hop{50%{translate:0 5px}}
+.ctf{right:14px;top:50%;bottom:auto;transform:translateY(-50%);gap:12px}
+.ctf button{display:flex;flex-direction:column;align-items:center;gap:4px;width:80px;height:auto;border-radius:20px;padding:12px 6px 8px;color:#fff;font:inherit;font-size:12px;font-weight:700;border:2px solid rgba(255,255,255,.7)}
+.ctf svg{width:30px;height:30px}
+@media(max-width:820px){
+  .deco{display:none}
+  .stage{padding:100px 16px 170px}
+  .cb3{min-width:0;width:100%;max-width:340px}
+  .ctf{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);transform:none}
+  .ctf button{width:48px;height:48px;border-radius:50%;padding:0;border:0;justify-content:center}
+  .ctf span{display:none}
+  .top{padding-left:16px;padding-right:16px}
+  .menu{margin-left:auto}
+  .top:not(.sc) nav a:not(.pill),.top nav a:not(.pill){color:var(--ink);text-shadow:none}
+  .top nav a:not(.pill):hover{background:var(--bg)}
+  .top nav .theme{color:var(--ink);border-color:var(--line)}
+  .top #ctnav{margin:4px 0 0}
+  .top nav .pill{text-align:center}
+  .pill.p2{margin-left:0}
+}
+
+/* ปรับสำหรับมือถือ: ลดปุ่มลอยที่บังหน้าจอ */
+@media(max-width:820px){
+  .ctf,.dn{display:none}                 /* ปุ่ม LINE/Discord + ลูกศรเลื่อนลง ซ่อนบนมือถือ (ติดต่อได้จากปุ่มในเมนู) */
+  #up{width:38px;height:38px;font-size:17px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px)}
+  .top{padding-top:calc(env(safe-area-inset-top,0px) + 8px);padding-bottom:8px}
+  .ct{display:flex;overflow-y:auto;padding:16px}
+  .ctm{margin:auto;padding:20px;max-height:none}
+}
+@media(max-height:480px) and (max-width:900px){
+  #up{display:none}
+}
+
+/* เมนูมือถือแบบกะทัดรัด: ตาราง 2 คอลัมน์ ไม่เต็มจอ */
+@media(max-width:640px){
+  .top nav{left:12px;right:12px;top:calc(100% + 4px);padding:8px;gap:6px;border-radius:18px;max-height:calc(100dvh - env(safe-area-inset-top,0px) - 84px);overflow-y:auto;overscroll-behavior:contain}
+  .top nav:not(.open){display:none}
+  .top nav.open{display:grid;grid-template-columns:1fr 1fr}
+  .top nav a:not(.pill){padding:9px 8px;line-height:1.4;font-size:15px;text-align:center;background:var(--bg);border-radius:14px}
+  .top nav #ctnav,.top nav #theme{margin:0;padding:9px 8px;line-height:1.4;font-size:15px;text-align:center;border-radius:14px}
+  .top nav #theme{background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+  .top nav .pill.p2{grid-column:1/-1;margin:2px 0 0;padding:10px 14px;line-height:1.4}
+}
+
+/* ปุ่มเมนู 3 ขีด */
+.menu{width:44px;height:44px;padding:0;position:relative;border-radius:50%}
+.menu .bar{position:absolute;left:12px;right:12px;height:2.5px;border-radius:2px;background:currentColor;transition:transform .25s,opacity .2s,top .25s}
+.menu .bar:nth-child(1){top:14px}
+.menu .bar:nth-child(2){top:20.75px}
+.menu .bar:nth-child(3){top:27.5px}
+.menu[aria-expanded="true"] .bar:nth-child(1){top:20.75px;transform:rotate(45deg)}
+.menu[aria-expanded="true"] .bar:nth-child(2){opacity:0}
+.menu[aria-expanded="true"] .bar:nth-child(3){top:20.75px;transform:rotate(-45deg)}
+@media(prefers-reduced-motion:reduce){.menu .bar{transition:none}}
+
+/* ปุ่ม/ช่องค้นหาในฉากหลัก */
+.stage .search input{min-width:0}
+.stage .search{max-width:560px;width:100%}
 </style>
 </head>
 <body>
 <div id="bar" aria-hidden="true"></div><button id="up" type="button" aria-label="กลับขึ้นบน">&uarr;</button>
+<nav class="side" aria-label="ไปยังส่วนต่าง ๆ">
+  <a class="on" href="#home" data-s="home"><i>🏠</i><span>หน้าหลัก</span></a>
+  <a href="#kb" data-s="kb"><i>📚</i><span>ความรู้</span></a>
+  <a href="#compare" data-s="compare"><i>⚖️</i><span>เปรียบเทียบ</span></a>
+  <a href="#checklist" data-s="checklist"><i>✅</i><span>เช็กลิสต์</span></a>
+</nav>
+<button class="dn" id="dn" type="button" aria-label="เลื่อนลง"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <div class="wrap" id="top">
 <header class="top">
   <a class="logo" href="#top" aria-label="คลิกแก้ หน้าแรก"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#2f46ff"/><path d="M11 8l13 7.5-5.6 1.6 3.4 5.9-2.9 1.7-3.4-5.9L11 23z" fill="#fff"/><circle cx="25" cy="9" r="3" fill="#7fd4ff"/></svg>คลิกแก้</a>
-  <nav><a href="#kb">ความรู้พื้นฐาน</a><a href="#compare">เปรียบเทียบ</a><a href="#checklist">เช็กลิสต์</a><a href="index.html" rel="noopener">หน้าแก้ปัญหา</a><button class="theme" id="theme" type="button">โหมดมืด</button></nav>
+  <button class="theme menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="เมนู"><span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span></button>
+  <nav id="nav"><a href="#kb">ความรู้พื้นฐาน</a><a href="#compare">เปรียบเทียบ</a><a href="#checklist">เช็กลิสต์</a><button class="theme" id="theme" type="button">โหมดมืด</button><a class="pill p2" href="index.html" rel="noopener">หน้าแก้ปัญหา</a></nav>
 </header>
 <main>
-<div class="hero">
-  <div>
-    <h1>คลังความรู้<br><mark>คอมพิวเตอร์</mark>ฉบับเข้าใจง่าย</h1>
-    <p class="lead">รวมความรู้พื้นฐานเรื่องฮาร์ดแวร์ ระบบ เครือข่าย และความปลอดภัย อธิบายเป็นภาษาไทยง่าย ๆ ไว้ก่อนจะลงมือแก้ปัญหา</p>
-    <div class="search"><input id="q" type="search" placeholder="ค้นหาคำศัพท์ เช่น RAM, DNS, SSD" aria-label="ค้นหาความรู้"></div>
-    <p class="hint">ลองค้นหา: <button type="button" data-q="RAM">RAM</button><button type="button" data-q="DNS">DNS</button><button type="button" data-q="สำรอง">สำรองข้อมูล</button></p>
-  </div>
-  <aside class="term" aria-hidden="true">
-    <div>$ define RAM</div><div class="o">→ หน่วยความจำชั่วคราว</div>
-    <div>$ define SSD</div><div class="o">→ ที่เก็บข้อมูลแบบไม่มีชิ้นส่วนหมุน</div>
-  </aside>
-</div>
+<section class="stage" id="home">
+        <div class="sky" aria-hidden="true"><div class="cl c1"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c2"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c3"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c4"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div></div>
+        <div class="grass" aria-hidden="true"><svg viewBox="0 0 1440 170" preserveAspectRatio="none"><path style="fill:var(--g1)" d="M0 70C220 20 440 100 720 62S1180 10 1440 66V170H0Z"/><path style="fill:var(--g2)" d="M0 112C260 70 520 140 820 104S1250 80 1440 116V170H0Z"/></svg></div>
+        <div class="deco dl" aria-hidden="true">
+          <svg viewBox="0 0 320 340">
+            <g class="bob">
+              <rect x="30" y="30" width="230" height="160" rx="18" fill="#2f46ff"/>
+              <rect x="44" y="44" width="202" height="130" rx="10" fill="#e3f4ff"/>
+              <path d="M100 112l30 30 62-66" fill="none" stroke="#2f46ff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="125" y="190" width="40" height="34" fill="#1c2bb8"/>
+              <rect x="85" y="222" width="120" height="14" rx="7" fill="#1c2bb8"/>
+            </g>
+            <g class="bob2">
+              <rect x="232" y="238" width="54" height="80" rx="27" fill="#fff" stroke="#2f46ff" stroke-width="6"/>
+              <path d="M259 238v32" stroke="#2f46ff" stroke-width="6"/>
+              <circle cx="259" cy="252" r="5" fill="#7fd4ff"/>
+            </g>
+            <path d="M40 262l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#fff"/>
+            <circle cx="300" cy="60" r="7" fill="#7fd4ff"/>
+          </svg>
+        </div>
+        <div class="deco dr" aria-hidden="true">
+          <svg viewBox="0 0 320 340">
+            <g class="bob2">
+              <rect x="70" y="50" width="200" height="130" rx="14" fill="#14206b"/>
+              <rect x="82" y="62" width="176" height="106" rx="7" fill="#7fd4ff"/>
+              <path d="M118 108h64M118 128h100" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+              <path d="M40 188h260l-22 34H62z" fill="#2f46ff"/>
+            </g>
+            <g class="bob">
+              <path d="M96 236l44 16v38c0 28-24 44-44 54-20-10-44-26-44-54v-38z" fill="#fff" stroke="#2f46ff" stroke-width="6"/>
+              <path d="M76 292l15 15 29-34" fill="none" stroke="#2f46ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <path d="M270 250l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#fff"/>
+            <circle cx="30" cy="70" r="7" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="stage-in">
+          <p class="kick">คลังความรู้คอมพิวเตอร์ภาษาไทย</p>
+          <h1 class="big">คลังความรู้<br>คอมพิวเตอร์</h1>
+          <div class="ribbon">ฉบับเข้าใจง่าย</div>
+          <p class="tagl">✦ ฮาร์ดแวร์ · ระบบ · เครือข่าย · ความปลอดภัย ✦</p>
+          <p class="lead2">รวมความรู้พื้นฐานเรื่องฮาร์ดแวร์ ระบบ เครือข่าย และความปลอดภัย อธิบายเป็นภาษาไทยง่าย ๆ ไว้ก่อนจะลงมือแก้ปัญหา</p>
+          <div class="search"><input id="q" type="search" placeholder="ค้นหาคำศัพท์ เช่น RAM, DNS, SSD" aria-label="ค้นหาความรู้"></div>
+          <p class="hint">ลองค้นหา: <button type="button" data-q="RAM">RAM</button><button type="button" data-q="DNS">DNS</button><button type="button" data-q="สำรอง">สำรองข้อมูล</button></p>
+          <div class="ctas">
+            <a class="cb3 a" href="#kb"><i aria-hidden="true">📚</i><span><small>อ่านเลย!!</small><b>ความรู้พื้นฐาน</b></span></a>
+            <a class="cb3 b" href="#compare"><i aria-hidden="true">⚖️</i><span><small>ดูแบบเทียบกัน!!</small><b>SSD / HDD</b></span></a>
+            <a class="cb3 c" href="#checklist"><i aria-hidden="true">✅</i><span><small>ทำทุกเดือน!!</small><b>เช็กลิสต์</b></span></a>
+          </div>
+        </div>
+      </section>
 
 <section id="kb" class="sec">
   <h2>ความรู้พื้นฐาน</h2>
@@ -347,6 +525,24 @@ chk();
     try{sessionStorage.setItem("cnt_"+page,"1")}catch(e){}
     $("#vt").textContent=d.total.toLocaleString("th-TH");$("#vd").textContent=d.today.toLocaleString("th-TH");el.hidden=false;
   }).catch(()=>{});
+})();
+
+(function(){
+  const mb=$("#menu"),nv=$("#nav");
+  function setM(o){nv.classList.toggle("open",o);mb.setAttribute("aria-expanded",String(o))}
+  mb.onclick=e=>{e.stopPropagation();setM(!nv.classList.contains("open"))};
+  nv.addEventListener("click",e=>{if(e.target.closest("a"))setM(false)});
+  document.addEventListener("click",e=>{if(!e.target.closest(".top"))setM(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setM(false)});
+  const top=document.querySelector(".top"),dn=$("#dn");
+  function sc(){top.classList.toggle("sc",scrollY>40);dn.classList.toggle("hide",scrollY>200)}
+  addEventListener("scroll",sc,{passive:true});sc();
+  dn.onclick=()=>{$("#kb").scrollIntoView({behavior:"smooth"})};
+  const links=[...document.querySelectorAll(".side a")],map=new Map(links.map(a=>[a.dataset.s,a]));
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("on"));const a=map.get(e.target.id);if(a)a.classList.add("on")}}),{rootMargin:"-40% 0px -55% 0px"});
+    links.forEach(a=>{const t=document.getElementById(a.dataset.s);if(t)io.observe(t)});
+  }
 })();
 
 /* theme */
