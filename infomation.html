@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คลังความรู้คอมพิวเตอร์ – คลิกแก้</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1ea;--ink:#14141b;--card:#fff;--muted:#666672;--line:#e1ded3;--blue:#2f46ff;--accent:#2f46ff;--lime:#7fd4ff;--bubble:#e3f4ff;--ok:#1f7a4d;--bad:#b3402a;--signal:#a86a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e14;--ink:#f1f1f5;--card:#181822;--muted:#9a9aa8;--line:#2b2b3a;--accent:#9aa8ff;--bubble:#12303f;--ok:#5ed39a;--bad:#ff8a70;--signal:#f2b84b}}
+:root[data-theme="dark"]{--bg:#0e0e14;--ink:#f1f1f5;--card:#181822;--muted:#9a9aa8;--line:#2b2b3a;--accent:#9aa8ff;--bubble:#12303f;--ok:#5ed39a;--bad:#ff8a70;--signal:#f2b84b}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Anuphan,"Noto Sans Thai",system-ui,Tahoma,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tbox :focus-visible{outline-color:var(--lime)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0;padding:8px 10px 8px 16px;background:var(--card);border:1px solid var(--line);border-radius:999px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:5}
+.logo{font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{background:var(--lime);color:#14141b;font:700 13px ui-monospace,Menlo,Consolas,monospace;padding:5px 8px;border-radius:9px;font-style:normal}
+nav{display:flex;align-items:center;gap:4px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:999px}
+nav a:hover{background:var(--bg);color:var(--ink)}
+@media(max-width:640px){nav a{display:none}}
+.theme{border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px;padding:5px 14px;font:inherit;font-size:14px;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;margin:40px 0 36px}
+h1{font-size:clamp(34px,6.5vw,60px);line-height:1.2;margin:0 0 14px;font-weight:700;letter-spacing:-.02em}
+mark{background:linear-gradient(transparent 55%,var(--lime) 55%);color:inherit;padding:0 4px}
+.lead{color:var(--muted);max-width:52ch;margin:0 0 22px}
+.search{display:flex;gap:8px;max-width:600px}
+.search input{flex:1;min-width:0;padding:15px 18px;font:inherit;border:2px solid var(--ink);border-radius:14px;background:var(--card);color:var(--ink)}
+.search input:focus{outline:none;box-shadow:0 0 0 4px var(--lime)}
+.go{background:var(--ink);color:var(--bg);border:0;border-radius:14px;padding:0 24px;font:inherit;font-weight:600;cursor:pointer}
+.hint{font-size:14px;color:var(--muted);margin:10px 0 0}
+.hint button{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline;padding:0 5px}
+#hit{margin-top:16px;max-width:600px}
+.term{background:#14141b;color:#7fd4ff;border-radius:18px;padding:20px;font:14px/1.9 ui-monospace,Menlo,Consolas,monospace;transform:rotate(1.5deg);overflow-wrap:anywhere}
+.term .o{color:#e8e8f0;margin-bottom:6px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-bottom:56px}
+.tbox{grid-column:span 7;background:var(--blue);color:#fff;border-radius:24px;padding:28px}
+.chat{grid-column:span 5}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.term{display:none}.tbox,.chat{grid-column:1/-1}}
+h2{font-size:26px;margin:0 0 4px;line-height:1.3}
+.sub{color:var(--muted);margin:0 0 18px}
+.crumbs{font-size:14px;opacity:.85}
+.tbox .q{font-size:21px;font-weight:600;margin:14px 0}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.opts button{font:inherit;text-align:left;padding:14px 16px;border-radius:14px;border:0;background:#fff;color:#14141b;cursor:pointer;font-weight:500;display:flex;justify-content:space-between;gap:8px}
+.opts button::after{content:"\2192"}
+.opts button:hover{background:var(--lime)}
+.fix{background:#fff;color:#14141b;border-radius:14px;padding:16px 20px;margin-top:12px}
+.fix ol{padding-left:22px;margin:8px 0 0}
+.reset{margin-top:14px;background:none;border:1px solid currentColor;color:inherit;border-radius:999px;padding:6px 16px;font:inherit;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.err{border-left:6px solid var(--lime)}
+.err h3{margin:0 0 4px;font-size:17px}
+.chat{display:flex;flex-direction:column;padding:0;overflow:hidden;border-radius:24px}
+.chat-h{padding:24px 24px 0}
+.msgs{flex:1;min-height:180px;max-height:360px;overflow-y:auto;padding:12px 24px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:88%;padding:10px 14px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.m.u{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.m.a{align-self:flex-start;background:var(--bubble);border-bottom-left-radius:4px}
+.m.e{align-self:flex-start;color:var(--bad);border:1px solid var(--bad)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 24px 12px}
+.chips button{font:inherit;font-size:14px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.chips button:hover{background:var(--lime);color:#14141b;border-color:var(--lime)}
+#cf{max-width:none;padding:14px 24px;border-top:1px solid var(--line)}
+#cf input{border-width:1px}
+#cf button{background:var(--blue);color:#fff;border:0;border-radius:14px;padding:0 20px;font:inherit;font-weight:600;cursor:pointer}
+#cf button:disabled{opacity:.5;cursor:wait}
+.chat .hint{padding:0 24px 16px;margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.tabs button{font:inherit;font-size:14px;padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
+details{background:var(--card);border:1px solid var(--line);border-radius:18px}
+summary{cursor:pointer;padding:16px 18px;font-weight:600;display:flex;gap:10px;align-items:center;flex-wrap:nowrap;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;margin-left:auto;font-size:22px;color:var(--muted)}
+details[open] summary::after{content:"\2013"}
+.lv{flex:none;white-space:nowrap;font-size:13px;font-weight:500;padding:1px 10px;border-radius:999px;border:1px solid currentColor}
+.l1{color:var(--ok)}.l2{color:var(--signal)}.l3{color:var(--bad)}
+.body{padding:0 18px 16px}
+.body ol{padding-left:22px;margin:0 0 12px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:14px}
+
+/* motion */
+.card,details,.tbox,.opts button,.opts button::after,.go,#cf button,.chips button,.tabs button,.vote button,.theme,.logo svg{transition:transform .2s ease,box-shadow .2s ease,background-color .2s,color .2s,border-color .2s}
+details:hover,.card:not(.chat):hover{transform:translateY(-3px);box-shadow:0 12px 26px -14px rgba(47,70,255,.45);border-color:var(--accent)}
+.tbox:hover{box-shadow:0 20px 44px -20px rgba(47,70,255,.7)}
+.opts button:hover{transform:translateX(4px)}
+.opts button:hover::after{transform:translateX(5px)}
+.go:hover,#cf button:hover{transform:translateY(-2px);box-shadow:0 8px 16px -8px rgba(0,0,0,.45)}
+.go:active,#cf button:active,.opts button:active{transform:scale(.97)}
+.chips button:hover,.tabs button:hover,.vote button:hover{transform:translateY(-2px)}
+.logo:hover svg{transform:rotate(-10deg) scale(1.1)}
+.theme:hover{background:var(--bg)}
+mark{background:linear-gradient(var(--lime),var(--lime)) 0 90%/100% 45% no-repeat;animation:hl .9s .3s ease-out both}
+.term>div{animation:fin .4s ease-out both}
+.term>div:nth-child(2){animation-delay:.4s}.term>div:nth-child(3){animation-delay:.8s}.term>div:nth-child(4){animation-delay:1.2s}.term>div:nth-child(5){animation-delay:1.6s}.term>div:nth-child(6){animation-delay:2s}
+.term::after{content:"\258D";animation:blink 1s steps(1) infinite}
+.m{animation:pop .25s ease-out}
+summary::after{transition:transform .3s ease}
+details[open] summary::after{content:"+";transform:rotate(45deg)}
+details.closing summary::after{transform:none}
+@keyframes hl{from{background-size:0 45%}}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}}
+@keyframes blink{50%{opacity:0}}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:var(--accent);z-index:20}
+#up{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:44px;height:44px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:10;box-shadow:0 8px 18px -8px rgba(47,70,255,.7)}
+#up.show{opacity:1;pointer-events:auto;transform:none}
+#up:hover{transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease,box-shadow .2s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.vlist{flex:1;padding:12px 24px;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto}
+.vrow{display:flex;gap:6px;align-items:center}
+.v{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--card);transition:transform .2s,border-color .2s,box-shadow .2s}
+.v:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:0 8px 18px -12px rgba(47,70,255,.5)}
+.v .pl{flex:none;width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:15px;transition:transform .2s}
+.v:hover .pl{transform:scale(1.1)}
+.v b{display:block;font-weight:600;line-height:1.4}
+.v small{color:var(--muted)}
+.sec{margin-bottom:56px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 40px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;transition:transform .2s,border-color .2s}
+.step:hover{transform:translateY(-3px);border-color:var(--accent)}
+.step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--lime);color:#14141b}
+.step h3{margin:10px 0 2px;font-size:18px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.cat{font:inherit;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:18px;padding:16px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.cat:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 26px -14px rgba(47,70,255,.45)}
+.cat .ic{font-size:28px;display:block;line-height:1.4}
+.cat b{display:block}.cat small{color:var(--muted)}
+.c7{grid-column:span 7}.c5{grid-column:span 5}
+@media(max-width:820px){.c7,.c5{grid-column:1/-1}}
+.card.flat:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.card.flat{padding:22px 24px}
+.cmd{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.cmd>div{min-width:0}
+.cmd code{font:14px ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);padding:3px 8px;border-radius:8px;overflow-wrap:anywhere}
+.cmd small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.cp{margin-left:auto;flex:none;font:inherit;font-size:13px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:background-color .2s,transform .2s}
+.cp:hover{background:var(--lime);color:#14141b;border-color:var(--lime);transform:translateY(-2px)}
+.keys{list-style:none;margin:0;padding:0}
+.keys li{padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.keys span{display:block;margin-bottom:2px}
+kbd{font:600 12px ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;padding:2px 8px;margin-right:5px}
+.faq{display:grid;gap:10px;max-width:760px}
+.cta{background:var(--blue);color:#fff;border-radius:24px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:56px}
+.cta h2{margin:0 0 4px}.cta p{margin:0;opacity:.9}
+a.go{display:inline-block;text-decoration:none;padding:13px 24px;line-height:1.4}
+.go.lime{background:var(--lime);color:#14141b}
+footer .fcols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:20px}
+@media(max-width:640px){footer .fcols{grid-template-columns:1fr}}
+footer b{display:block;color:var(--ink);margin-bottom:6px}
+footer a{display:block;text-decoration:none;color:var(--muted);padding:2px 0}
+footer a:hover{color:var(--ink)}
+footer p{margin:0}
+.shot{margin:0 0 14px}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:var(--bg)}
+.shot img{cursor:zoom-in;transition:filter .2s}
+.shot img:hover{filter:brightness(1.06)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(8,10,20,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 20px) 20px calc(env(safe-area-inset-bottom,0px) + 20px);opacity:0;transition:opacity .2s;cursor:zoom-out}
+.lb.on{opacity:1}
+.lb img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:12px;transform:scale(.94);transition:transform .25s}
+.lb.on img{transform:none}
+.lb p{color:#fff;margin:0;text-align:center}
+.lb button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:26px;cursor:pointer}
+.lv.tg{color:var(--accent)}
+.k p{margin:0 0 8px}
+.k ul{margin:0 0 12px;padding-left:20px;color:var(--muted)}
+.empty{color:var(--muted);padding:16px 0}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:420px}
+th,td{text-align:left;padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:14px;border-top:0}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.chk input{width:20px;height:20px;margin-top:4px;accent-color:var(--blue);flex:none}
+.chk input:checked+span{text-decoration:line-through;color:var(--muted)}
+.pg{height:8px;border-radius:99px;background:var(--bg);border:1px solid var(--line);overflow:hidden;margin:6px 0 12px}
+.pg i{display:block;height:100%;width:0;background:var(--lime);transition:width .3s}
+#klist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
+.back{display:inline-block;margin-top:6px}
+footer .views{margin-bottom:6px}footer .views b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div><button id="up" type="button" aria-label="กลับขึ้นบน">&uarr;</button>
+<div class="wrap" id="top">
+<header class="top">
+  <a class="logo" href="#top" aria-label="คลิกแก้ หน้าแรก"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#2f46ff"/><path d="M11 8l13 7.5-5.6 1.6 3.4 5.9-2.9 1.7-3.4-5.9L11 23z" fill="#fff"/><circle cx="25" cy="9" r="3" fill="#7fd4ff"/></svg>คลิกแก้</a>
+  <nav><a href="#kb">ความรู้พื้นฐาน</a><a href="#compare">เปรียบเทียบ</a><a href="#checklist">เช็กลิสต์</a><a href="index.html" rel="noopener">หน้าแก้ปัญหา</a><button class="theme" id="theme" type="button">โหมดมืด</button></nav>
+</header>
+<main>
+<div class="hero">
+  <div>
+    <h1>คลังความรู้<br><mark>คอมพิวเตอร์</mark>ฉบับเข้าใจง่าย</h1>
+    <p class="lead">รวมความรู้พื้นฐานเรื่องฮาร์ดแวร์ ระบบ เครือข่าย และความปลอดภัย อธิบายเป็นภาษาไทยง่าย ๆ ไว้ก่อนจะลงมือแก้ปัญหา</p>
+    <div class="search"><input id="q" type="search" placeholder="ค้นหาคำศัพท์ เช่น RAM, DNS, SSD" aria-label="ค้นหาความรู้"></div>
+    <p class="hint">ลองค้นหา: <button type="button" data-q="RAM">RAM</button><button type="button" data-q="DNS">DNS</button><button type="button" data-q="สำรอง">สำรองข้อมูล</button></p>
+  </div>
+  <aside class="term" aria-hidden="true">
+    <div>$ define RAM</div><div class="o">→ หน่วยความจำชั่วคราว</div>
+    <div>$ define SSD</div><div class="o">→ ที่เก็บข้อมูลแบบไม่มีชิ้นส่วนหมุน</div>
+  </aside>
+</div>
+
+<section id="kb" class="sec">
+  <h2>ความรู้พื้นฐาน</h2>
+  <p class="sub">กดที่หัวข้อเพื่ออ่านรายละเอียด</p>
+  <div class="tabs" id="tabs" role="group" aria-label="หมวดหมู่"></div>
+  <div id="klist"></div>
+  <p class="empty" id="empty" hidden>ไม่พบหัวข้อที่ตรงกับคำค้นหา ลองใช้คำสั้น ๆ หรือเลือกหมวด “ทั้งหมด”</p>
+</section>
+
+<div class="bento">
+  <section id="compare" class="card flat c7">
+    <h2>เปรียบเทียบ SSD กับ HDD</h2>
+    <p class="sub">เลือกที่เก็บข้อมูลให้เหมาะกับการใช้งาน</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>SSD</th><th>HDD</th></tr></thead>
+      <tbody>
+        <tr><td>ความเร็ว</td><td>เร็วกว่ามาก เปิดเครื่องและโปรแกรมไวขึ้นชัดเจน</td><td>ช้ากว่า</td></tr>
+        <tr><td>ความทนทาน</td><td>ไม่มีชิ้นส่วนเคลื่อนไหว ทนแรงกระแทกได้ดี</td><td>จานหมุนไวต่อการกระแทกขณะทำงาน</td></tr>
+        <tr><td>ราคาต่อพื้นที่</td><td>แพงกว่า</td><td>ถูกกว่า</td></tr>
+        <tr><td>เสียง</td><td>เงียบ</td><td>มีเสียงหมุนและเสียงอ่านข้อมูล</td></tr>
+        <tr><td>เหมาะกับ</td><td>ติดตั้ง Windows และโปรแกรมที่ใช้บ่อย</td><td>เก็บไฟล์ขนาดใหญ่ สำรองข้อมูล</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="checklist" class="card flat c5">
+    <h2>เช็กลิสต์ดูแลเครื่อง</h2>
+    <p class="sub">ทำเดือนละครั้ง ติ๊กเก็บไว้ในเบราว์เซอร์ของคุณ</p>
+    <div class="pg" aria-hidden="true"><i id="pgb"></i></div>
+    <div id="chklist"></div>
+    <p class="hint" id="pgt" style="margin:10px 0 0"></p>
+    <button class="reset" id="chkreset" type="button" style="color:var(--muted)">ล้างเครื่องหมายทั้งหมด</button>
+  </section>
+</div>
+
+<section class="cta">
+  <div><h2>เครื่องมีปัญหาอยู่ตอนนี้?</h2><p>ไปที่ตัวช่วยหาวิธีแก้ เลือกปัญหาแล้วทำตามทีละขั้นได้เลย</p></div>
+  <a class="go lime" href="index.html" rel="noopener">ไปหน้าแก้ปัญหา</a>
+</section>
+</main>
+<footer>
+  <!-- <p class="views" id="views" hidden>ยอดเข้าชมทั้งหมด <b id="vt">–</b> ครั้ง · วันนี้ <b id="vd">–</b> ครั้ง</p> -->
+  <p>© 2026 คลิกแก้ – เว็บไซต์ตัวอย่าง เนื้อหาเป็นความรู้ทั่วไป ควรสำรองข้อมูลก่อนลองแก้ไขระบบเสมอ</p>
+</footer>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const KB=[
+{t:"CPU (หน่วยประมวลผลกลาง)",c:"ฮาร์ดแวร์",k:"cpu โปรเซสเซอร์ สมอง",p:"เป็นสมองของเครื่อง ทำหน้าที่คำนวณและสั่งงานส่วนอื่น ๆ ความแรงดูจากจำนวนคอร์ ความเร็ว (GHz) และรุ่นของชิป",l:["คอร์มากช่วยเมื่อเปิดหลายโปรแกรมพร้อมกัน","ถ้าร้อนจัด CPU จะลดความเร็วตัวเองเพื่อป้องกันความเสียหาย ทำให้เครื่องช้าลง"]},
+{t:"RAM (หน่วยความจำ)",c:"ฮาร์ดแวร์",k:"ram แรม หน่วยความจำ",p:"พื้นที่ทำงานชั่วคราวของโปรแกรมที่กำลังเปิดอยู่ ปิดเครื่องแล้วข้อมูลในนี้จะหายไป ถ้า RAM เต็ม ระบบต้องใช้ดิสก์ช่วย ทำให้เครื่องช้าและค้าง",l:["งานทั่วไปมักเริ่มที่ 8 GB งานหนักหรือเกมควรมากกว่านั้น","ดูการใช้ RAM ได้ใน Task Manager (Ctrl+Shift+Esc)"]},
+{t:"SSD และ HDD",c:"ฮาร์ดแวร์",k:"ssd hdd ฮาร์ดดิสก์ ที่เก็บข้อมูล",p:"ทั้งคู่เป็นที่เก็บข้อมูลถาวร HDD ใช้จานหมุน ส่วน SSD ใช้ชิปหน่วยความจำ จึงเร็วกว่าและเงียบกว่า การเปลี่ยนจาก HDD เป็น SSD เป็นการอัปเกรดที่เห็นผลที่สุดอย่างหนึ่ง",l:["ดูตารางเปรียบเทียบด้านล่าง","ควรมีพื้นที่ว่างอย่างน้อยประมาณ 15% เพื่อให้ระบบทำงานลื่น"]},
+{t:"GPU (การ์ดจอ)",c:"ฮาร์ดแวร์",k:"gpu การ์ดจอ กราฟิก",p:"ประมวลผลภาพและกราฟิก ใช้ในเกม งานตัดต่อวิดีโอ และงาน 3D เครื่องที่มีการ์ดจอแยก ต้องเสียบสายจอเข้าที่การ์ดจอ ไม่ใช่ที่เมนบอร์ด",l:["ภาพกระตุกหรือจอดับ ลองอัปเดตไดรเวอร์การ์ดจอ"]},
+{t:"เมนบอร์ดและเพาเวอร์ซัพพลาย",c:"ฮาร์ดแวร์",k:"เมนบอร์ด mainboard psu เพาเวอร์ ไฟ",p:"เมนบอร์ดเป็นแผงวงจรหลักที่เชื่อมทุกชิ้นส่วนเข้าด้วยกัน ส่วนเพาเวอร์ซัพพลาย (PSU) แปลงไฟบ้านให้เป็นไฟที่ชิ้นส่วนใช้ได้ ถ้ากำลังไฟไม่พอ เครื่องอาจรีสตาร์ทหรือดับเอง",l:["เปลี่ยน CPU หรือ RAM ต้องตรวจว่าเข้ากับเมนบอร์ดได้","เครื่องเปิดไม่ติดเลย มักเริ่มสงสัยที่เพาเวอร์ซัพพลาย"]},
+{t:"BIOS / UEFI",c:"ระบบ",k:"bios uefi บูต boot",p:"เฟิร์มแวร์ที่ทำงานก่อน Windows ใช้ตั้งค่าพื้นฐาน เช่น ลำดับการบูต และโหมดของดิสก์ (SATA) เข้าได้โดยกดปุ่มเฉพาะตอนเปิดเครื่อง (มักเป็น Del, F2 หรือ F12 ขึ้นกับยี่ห้อ)",l:["เปลี่ยนค่าผิดอาจทำให้เครื่องบูตไม่ขึ้น จดค่าเดิมไว้ก่อนแก้"]},
+{t:"ไดรเวอร์ (Driver)",c:"ระบบ",k:"ไดรเวอร์ driver อัปเดต",p:"ซอฟต์แวร์ที่ทำให้ Windows สื่อสารกับอุปกรณ์ได้ เช่น การ์ดจอ เครื่องพิมพ์ ตัวรับ Wi-Fi ไดรเวอร์เก่าหรือผิดรุ่นเป็นสาเหตุที่พบบ่อยของอุปกรณ์ที่ไม่ทำงานและจอฟ้า",l:["ดาวน์โหลดจากเว็บไซต์ผู้ผลิตโดยตรง","ถ้าปัญหาเริ่มหลังอัปเดตไดรเวอร์ ลองย้อนกลับเวอร์ชันใน Device Manager"]},
+{t:"Windows Update",c:"ระบบ",k:"windows update อัปเดต แพตช์",p:"แพตช์ที่แก้ช่องโหว่ความปลอดภัยและข้อบกพร่องของระบบ การปล่อยค้างไว้นานเพิ่มความเสี่ยงต่อมัลแวร์ ควรอัปเดตสม่ำเสมอและสำรองข้อมูลก่อนอัปเดตใหญ่",l:["อัปเดตค้างนาน ให้รอสักพักก่อนปิดเครื่อง การปิดกลางคันอาจทำให้ระบบเสียหาย"]},
+{t:"IP Address และ DNS",c:"เครือข่าย",k:"ip dns เน็ต ชื่อเว็บ",p:"IP Address คือที่อยู่ของอุปกรณ์ในเครือข่าย ส่วน DNS ทำหน้าที่แปลงชื่อเว็บที่เราพิมพ์ให้เป็น IP ถ้า DNS มีปัญหา จะต่อเน็ตอยู่แต่เข้าเว็บไม่ได้",l:["ลองล้างแคชด้วยคำสั่ง ipconfig /flushdns","ลองเปลี่ยนไปใช้ DNS สาธารณะ เช่น 1.1.1.1 หรือ 8.8.8.8"]},
+{t:"โมเด็มกับเราเตอร์",c:"เครือข่าย",k:"โมเด็ม modem เราเตอร์ router wifi",p:"โมเด็มเชื่อมบ้านเข้ากับผู้ให้บริการอินเทอร์เน็ต ส่วนเราเตอร์แจกสัญญาณให้อุปกรณ์ในบ้าน หลายเครื่องรวมสองอย่างไว้ในกล่องเดียว",l:["เน็ตหลุดทุกเครื่อง ให้เริ่มดูที่ไฟสถานะของเราเตอร์/โมเด็ม"]},
+{t:"Wi-Fi 2.4 GHz และ 5 GHz",c:"เครือข่าย",k:"wifi wi-fi 2.4 5 ghz สัญญาณ",p:"2.4 GHz ไปได้ไกลและทะลุสิ่งกีดขวางดีกว่า แต่มักแออัดและช้ากว่า ส่วน 5 GHz เร็วกว่าแต่ระยะสั้นกว่า ถ้าอยู่ใกล้เราเตอร์ให้เลือก 5 GHz",l:["ห้องที่อยู่ไกลหรือมีผนังหนา 2.4 GHz อาจเสถียรกว่า"]},
+{t:"ฟิชชิง (Phishing)",c:"ความปลอดภัย",k:"phishing ฟิชชิง หลอก ลิงก์ปลอม",p:"การหลอกให้กรอกข้อมูลหรือกดลิงก์ปลอม มักปลอมเป็นธนาคาร บริษัทขนส่ง หรือเว็บที่เราใช้ และมักเร่งให้รีบทำ",l:["ตรวจที่อยู่ลิงก์และอีเมลผู้ส่งก่อนกดทุกครั้ง","ไม่กรอกรหัสผ่านหรือ OTP ตามลิงก์ที่ส่งมาเอง"]},
+{t:"ยืนยันตัวตนสองขั้นตอน (2FA)",c:"ความปลอดภัย",k:"2fa otp ยืนยันตัวตน รหัสผ่าน",p:"เพิ่มด่านที่สองนอกจากรหัสผ่าน แม้รหัสผ่านรั่วก็ยังเข้าบัญชีไม่ได้ง่าย ๆ ควรเปิดใช้กับอีเมลและบัญชีสำคัญ",l:["แอปยืนยันตัวตนมักปลอดภัยกว่า SMS"]},
+{t:"กฎสำรองข้อมูล 3-2-1",c:"ความปลอดภัย",k:"สำรอง backup 3-2-1 ข้อมูล",p:"เก็บข้อมูลไว้ 3 สำเนา บนสื่อ 2 ประเภท และมี 1 สำเนาอยู่นอกสถานที่ (เช่น คลาวด์) ช่วยให้ข้อมูลรอดแม้ฮาร์ดดิสก์เสียหรือเครื่องถูกขโมย",l:["ลองเปิดไฟล์สำรองดูบ้าง เพื่อให้แน่ใจว่าใช้งานได้จริง"]},
+{t:"ความร้อนและฝุ่น",c:"การดูแลเครื่อง",k:"ความร้อน ฝุ่น พัดลม ระบายอากาศ",p:"ความร้อนสะสมทำให้เครื่องช้าลงและอายุชิ้นส่วนสั้นลง ฝุ่นอุดตันช่องลมเป็นสาเหตุหลัก ควรทำความสะอาดเป็นระยะและไม่วางโน้ตบุ๊กบนผ้าหรือที่นอน",l:["ทำความสะอาดฝุ่นประมาณทุก 6–12 เดือน","เสียงพัดลมดังผิดปกติเป็นสัญญาณที่ควรตรวจ"]}
+];
+const CATS=["ทั้งหมด",...new Set(KB.map(x=>x.c))];let cur="ทั้งหมด",qs="";
+function tabs(){$("#tabs").innerHTML=CATS.map(c=>`<button type="button" aria-pressed="${c===cur}">${c}</button>`).join("");$("#tabs").querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{cur=CATS[i];tabs();list()})}
+function list(){
+  const q=qs.trim().toLowerCase();
+  const m=KB.filter(x=>(cur==="ทั้งหมด"||x.c===cur)&&(!q||(x.t+x.k+x.p).toLowerCase().includes(q)));
+  $("#klist").innerHTML=m.map(x=>`<details class="k"><summary>${esc(x.t)} <span class="lv tg">${x.c}</span></summary><div class="body"><p>${esc(x.p)}</p><ul>${x.l.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div></details>`).join("");
+  $("#empty").hidden=m.length>0;
+}
+tabs();list();
+$("#q").addEventListener("input",e=>{qs=e.target.value;list()});
+document.querySelectorAll(".hint button[data-q]").forEach(b=>b.onclick=()=>{$("#q").value=b.dataset.q;qs=b.dataset.q;cur="ทั้งหมด";tabs();list()});
+
+/* checklist */
+const TODO=["อัปเดต Windows และไดรเวอร์","สำรองไฟล์สำคัญ","ตรวจพื้นที่ว่างในไดรฟ์ C:","สแกนไวรัสด้วย Windows Security","ถอนโปรแกรมที่ไม่ได้ใช้","ตรวจโปรแกรมที่เปิดพร้อมเครื่อง","ทำความสะอาดฝุ่นและช่องระบายอากาศ (ทุก 6–12 เดือน)"];
+let done=[];try{done=JSON.parse(localStorage.getItem("kb_chk")||"[]")}catch(e){}
+function chk(){
+  const box=$("#chklist");box.textContent="";
+  TODO.forEach((t,i)=>{
+    const l=document.createElement("label");l.className="chk";
+    l.innerHTML='<input type="checkbox"><span></span>';l.querySelector("span").textContent=t;
+    const c=l.querySelector("input");c.checked=done.includes(i);
+    c.onchange=()=>{done=c.checked?[...new Set([...done,i])]:done.filter(x=>x!==i);try{localStorage.setItem("kb_chk",JSON.stringify(done))}catch(e){}prog()};
+    box.appendChild(l);
+  });prog();
+}
+function prog(){$("#pgb").style.width=(done.length/TODO.length*100)+"%";$("#pgt").textContent="เสร็จแล้ว "+done.length+" จาก "+TODO.length+" ข้อ"}
+$("#chkreset").onclick=()=>{done=[];try{localStorage.removeItem("kb_chk")}catch(e){}chk()};
+chk();
+
+(function(){
+  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.addEventListener("click",e=>{
+    const sm=e.target.closest("summary");if(!sm)return;
+    e.preventDefault();
+    const d=sm.parentElement,body=d.querySelector(".body");
+    if(d._a){d._a.cancel();d._a=null;body.style.overflow=""}
+    if(rm){d.open=!d.open;return}
+    body.style.overflow="hidden";
+    if(!d.open){
+      d.classList.remove("closing");d.open=true;
+      const h=body.offsetHeight;
+      d._a=body.animate({height:["0px",h+"px"],paddingBottom:["0px","16px"],opacity:[0,1]},{duration:300,easing:"ease-out"});
+      d._a.onfinish=()=>{body.style.overflow="";d._a=null};
+    }else{
+      d.classList.add("closing");
+      const h=body.offsetHeight;
+      d._a=body.animate({height:[h+"px","0px"],paddingBottom:["16px","0px"],opacity:[1,0]},{duration:250,easing:"ease-in"});
+      d._a.onfinish=()=>{d.open=false;d.classList.remove("closing");body.style.overflow="";d._a=null};
+    }
+  });
+})();
+(function(){
+  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const bar=document.getElementById("bar"),up=document.getElementById("up");
+  function onScroll(){const h=document.documentElement,max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?h.scrollTop/max*100:0)+"%";up.classList.toggle("show",h.scrollTop>500)}
+  addEventListener("scroll",onScroll,{passive:true});onScroll();
+  up.onclick=()=>scrollTo({top:0,behavior:rm?"auto":"smooth"});
+  if(!rm&&"IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll(".bento>section,#guides,.sec,.steps,.cta").forEach(el=>{el.classList.add("reveal");io.observe(el)});
+  }
+})();
+
+(function(){
+  const el=$("#views");if(!el||location.protocol==="file:")return;
+  const page=location.pathname.replace(/\/index\.html$/,"/")||"/";
+  let counted=false;try{counted=sessionStorage.getItem("cnt_"+page)==="1"}catch(e){}
+  const req=counted?fetch("/api/views"):fetch("/api/hit?p="+encodeURIComponent(page),{method:"POST"});
+  req.then(r=>r.ok?r.json():Promise.reject()).then(d=>{
+    try{sessionStorage.setItem("cnt_"+page,"1")}catch(e){}
+    $("#vt").textContent=d.total.toLocaleString("th-TH");$("#vd").textContent=d.today.toLocaleString("th-TH");el.hidden=false;
+  }).catch(()=>{});
+})();
+
+/* theme */
+$("#theme").onclick=()=>{
+  const r=document.documentElement;
+  const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme=dark?"light":"dark";
+  $("#theme").textContent=dark?"โหมดมืด":"โหมดสว่าง";
+};
+</script>
+</body>
+</html>
