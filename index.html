@@ -5,8 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>คลิกแก้ – วิธีแก้ปัญหาคอมพิวเตอร์</title>
+  <meta name="description" content="คู่มือแก้ปัญหาคอมพิวเตอร์ภาษาไทย Windows อินเทอร์เน็ต และอุปกรณ์ต่อพ่วง พร้อมตัวช่วยหาวิธีแก้ คลิปสอน และคำสั่งที่ใช้บ่อย ทำตามได้ทีละขั้น">
+  <meta name="theme-color" content="#2f46ff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="คลิกแก้ – วิธีแก้ปัญหาคอมพิวเตอร์">
+  <meta property="og:description" content="คู่มือแก้ปัญหาคอมพิวเตอร์ภาษาไทย ทำตามได้ทีละขั้น">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='10' fill='%232f46ff'/%3E%3Cpath d='M11 8l13 7.5-5.6 1.6 3.4 5.9-2.9 1.7-3.4-5.9L11 23z' fill='%23fff'/%3E%3Ccircle cx='25' cy='9' r='3' fill='%237fd4ff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f3f1ea;
@@ -67,7 +73,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font: 400 16px/1.7 Anuphan, "Noto Sans Thai", system-ui, Tahoma, sans-serif
+      font: 400 16px/1.7 Kanit, "Noto Sans Thai", system-ui, Tahoma, sans-serif
     }
 
     a {
@@ -1191,12 +1197,149 @@
     footer .views b {
       color: var(--ink)
     }
-  </style>
+  .ctf{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);z-index:10;display:flex;flex-direction:column;gap:10px}
+.ctf button{width:48px;height:48px;border-radius:50%;border:0;padding:0;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(0,0,0,.55);transition:transform .2s}
+.ctf button:hover{transform:translateY(-3px) scale(1.06)}
+.ctf .l{background:#06c755}.ctf .d{background:#5865f2}
+.ctf svg{width:26px;height:26px}
+.ct{position:fixed;inset:0;z-index:60;background:rgba(8,10,20,.6);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.ct.on{opacity:1;pointer-events:auto}
+.ctm{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:24px;padding:26px;width:min(440px,100%);position:relative;transform:translateY(16px) scale(.97);transition:transform .25s}
+.ct.on .ctm{transform:none}
+.ctm h2{margin:0 0 4px;padding-right:36px;font-size:22px;line-height:1.4}
+.live{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-right:10px;vertical-align:middle;animation:lv 1.6s ease-out infinite}
+@keyframes lv{0%{box-shadow:0 0 0 0 rgba(47,70,255,.55)}100%{box-shadow:0 0 0 10px rgba(47,70,255,0)}}
+.ctm .s{margin:0 0 12px;color:var(--muted)}
+.ctx{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);font-size:20px;cursor:pointer}
+.cc{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:16px;margin-top:10px;transition:border-color .2s,transform .2s}
+.cc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.cc i{flex:none;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;color:#fff;font:700 12px/1 Anuphan,system-ui,sans-serif;font-style:normal}
+.cc.l i{background:#06c755}.cc.d i{background:#5865f2}
+.cc div{min-width:0;flex:1}.cc b{display:block;line-height:1.4}.cc small{color:var(--muted);overflow-wrap:anywhere}
+.cb{flex:none;text-decoration:none;font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;border:0;background:var(--ink);color:var(--bg);cursor:pointer}
+.cb[aria-disabled="true"]{opacity:.4;pointer-events:none}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:999px;text-decoration:none}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 8px)}
+body{background-image:radial-gradient(var(--line) 1px,transparent 1.5px);background-size:24px 24px}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;z-index:-1;inset:-40px -24px;pointer-events:none;background:radial-gradient(420px 260px at 88% 8%,rgba(47,70,255,.16),transparent 70%),radial-gradient(380px 260px at 4% 95%,rgba(127,212,255,.4),transparent 70%)}
+.sec>h2::after,#guides>h2::after{content:"";display:block;width:44px;height:4px;border-radius:4px;background:var(--lime);margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 36px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;text-align:center;transition:transform .2s,border-color .2s}
+.st:hover{transform:translateY(-3px);border-color:var(--accent)}
+.st b{display:block;font-size:36px;line-height:1.2;color:var(--accent)}
+.st span{color:var(--muted);font-size:14px}
+.ico{flex:none;width:34px;height:34px;border-radius:10px;background:var(--bubble);display:grid;place-items:center;font-size:18px}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line);max-width:760px}
+.tl li{position:relative;padding:0 0 18px 18px}
+.tl li::before{content:"";position:absolute;left:-30px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--lime);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.nb{display:inline-block;font-size:12px;font-weight:600;padding:0 10px;border-radius:999px;margin-right:8px;background:var(--lime);color:#14141b}
+.nb.u{background:none;border:1px solid var(--line);color:var(--muted)}
+.tl small{color:var(--muted);margin-left:6px}
+.menu{display:none}
+@media(max-width:640px){
+  .menu{display:inline-block}
+  .top nav{display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);flex-direction:column;align-items:stretch;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 18px 40px -20px rgba(0,0,0,.5)}
+  .top nav.open{display:flex}
+  .top nav a{display:block;padding:12px 14px;color:var(--ink)}
+  .top nav .theme{margin-top:4px;padding:10px 14px}
+}
+/* ===== layout แบบหน้าแรกเกม: header โปร่ง + hero เต็มจอ + แถบข้าง ===== */
+:root{--sky1:#2a8cff;--sky2:#cfeaff;--cloud:#fff;--g1:#6fd36a;--g2:#3fae4f;--stage-ink:#10205f;--stars:0}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#070b2a;--sky2:#2b3b94;--cloud:#3a4aa8;--g1:#1f5b52;--g2:#123d3b;--stage-ink:#e8edff;--stars:1}}
+:root[data-theme="dark"]{--sky1:#070b2a;--sky2:#2b3b94;--cloud:#3a4aa8;--g1:#1f5b52;--g2:#123d3b;--stage-ink:#e8edff;--stars:1}
+body{overflow-x:clip}
+.top{position:fixed;top:0;left:0;right:0;margin:0;border:0;border-bottom:1px solid transparent;border-radius:0;background:transparent;box-shadow:none;z-index:15;justify-content:flex-start;gap:14px;padding:calc(env(safe-area-inset-top,0px) + 12px) max(20px,calc((100% - 1200px)/2)) 12px;transition:background .25s,border-color .25s}
+.top.sc{background:var(--card);background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+.top nav{flex:1;display:flex;align-items:center;gap:4px}
+.top #ctnav{margin-left:auto}
+.top:not(.sc) .logo,.top:not(.sc) nav a:not(.pill){color:#fff;text-shadow:0 1px 8px rgba(0,30,90,.35)}
+.top:not(.sc) nav a:not(.pill):hover{background:rgba(255,255,255,.2);color:#fff}
+.top:not(.sc) .theme{color:#fff;border-color:rgba(255,255,255,.65)}
+.top #ctnav,.pill{background:linear-gradient(135deg,#7fd4ff,#3aa7ff);color:#0b2a55;border:0;font-weight:700;border-radius:999px;padding:7px 18px;box-shadow:0 3px 0 rgba(0,60,140,.28);text-decoration:none;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s}
+.top #ctnav,.top .pill{color:#0b2a55}
+.pill.p2{background:linear-gradient(135deg,#5a6dff,#2f46ff);color:#fff!important;font-size:15px;margin-left:4px}
+.top #ctnav:hover,.pill:hover{transform:translateY(-2px)}
+.stage{position:relative;margin:0 calc(50% - 50vw) 40px;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 190px;background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 100%);overflow:hidden;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:0;z-index:0;opacity:var(--stars);pointer-events:none;background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff,transparent),radial-gradient(1.4px 1.4px at 28% 9%,#fff,transparent),radial-gradient(1.8px 1.8px at 47% 22%,#fff,transparent),radial-gradient(1.4px 1.4px at 63% 8%,#fff,transparent),radial-gradient(1.8px 1.8px at 78% 20%,#fff,transparent),radial-gradient(1.4px 1.4px at 91% 12%,#fff,transparent),radial-gradient(1.4px 1.4px at 8% 40%,#fff,transparent),radial-gradient(1.6px 1.6px at 93% 44%,#fff,transparent)}
+.cl{position:absolute;color:var(--cloud);opacity:.92;z-index:0}
+.cl svg{display:block;width:100%;height:auto}
+.c1{top:15%;left:5%;width:230px;animation:drift 38s ease-in-out infinite alternate}
+.c2{top:9%;right:9%;width:300px;animation:drift 46s ease-in-out infinite alternate-reverse}
+.c3{top:50%;left:30%;width:190px;opacity:.65;animation:drift 52s ease-in-out infinite alternate}
+.c4{top:56%;right:24%;width:250px;opacity:.7;animation:drift 44s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translateX(70px)}}
+.grass{position:absolute;left:0;right:0;bottom:0;height:170px;z-index:1;pointer-events:none}
+.grass svg{width:100%;height:100%;display:block}
+.deco{position:absolute;bottom:56px;width:clamp(150px,24vw,340px);z-index:1;pointer-events:none}
+.deco svg{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(10,20,100,.3))}
+.dl{left:3vw}.dr{right:8vw}
+.bob{animation:bob 5s ease-in-out infinite}.bob2{animation:bob 6.5s ease-in-out -2s infinite}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.stage-in{position:relative;z-index:2;width:100%;max-width:900px}
+.kick{display:inline-block;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);color:var(--stage-ink);font-weight:600;border-radius:999px;padding:4px 18px;margin:0 0 6px;backdrop-filter:blur(4px)}
+.big{font-size:clamp(44px,10vw,108px);line-height:1.14;margin:6px 0 12px;color:#fff;letter-spacing:-.01em;text-shadow:0 5px 0 #2f46ff,0 10px 0 rgba(28,43,184,.55),0 20px 34px rgba(10,20,100,.45)}
+.ribbon{margin:6px -20px 14px;padding:10px 40px;background:linear-gradient(90deg,transparent,rgba(47,70,255,.88) 14%,rgba(47,70,255,.88) 86%,transparent);color:#fff;font-weight:700;font-size:clamp(17px,2.6vw,28px)}
+.tagl{margin:4px 0 0;color:var(--stage-ink);font-weight:700;font-size:clamp(16px,2vw,21px)}
+.lead2{margin:0;color:var(--stage-ink);opacity:.85}
+.stage .search{margin:20px auto 0;justify-content:center}
+.stage .hint{color:var(--stage-ink);text-align:center}
+.stage .hint button{color:inherit;font-weight:600}
+.stage #hit{max-width:620px;margin:16px auto 0;text-align:left}
+.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.cb3{display:flex;align-items:center;gap:12px;min-width:250px;text-align:left;text-decoration:none;color:#fff;padding:10px 28px 10px 12px;border-radius:999px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 12px 24px -12px rgba(0,0,40,.6);transition:transform .2s}
+.cb3:hover{transform:translateY(-4px) scale(1.02)}
+.cb3 i{flex:none;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:26px;font-style:normal}
+.cb3 small{display:block;font-size:13px;font-weight:600;line-height:1.3}
+.cb3 b{display:block;font-size:24px;line-height:1.2}
+.cb3.a{background:linear-gradient(135deg,#4d63ff,#2f46ff)}
+.cb3.b{background:linear-gradient(135deg,#43b9ff,#1f8ee6)}
+.cb3.c{background:linear-gradient(135deg,#7b6bff,#4b3fd1)}
+.side{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;gap:10px}
+.side a{display:flex;align-items:center;height:42px;min-width:42px;border-radius:999px;background:var(--card);border:2px solid var(--line);color:var(--ink);text-decoration:none;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);overflow:hidden;transition:background .2s,border-color .2s,color .2s}
+.side i{flex:none;width:38px;height:38px;display:grid;place-items:center;font-style:normal;font-size:17px}
+.side span{max-width:0;opacity:0;white-space:nowrap;font-size:14px;font-weight:600;transition:max-width .25s,opacity .2s,padding .25s}
+.side a:hover span,.side a.on span{max-width:120px;opacity:1;padding-right:14px}
+.side a.on{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:1100px){.side{display:none}}
+.dn{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:48px;height:48px;border-radius:50%;border:3px solid #fff;background:var(--blue);display:grid;place-items:center;cursor:pointer;z-index:10;box-shadow:0 8px 18px -8px rgba(0,0,0,.6);transition:opacity .25s,transform .25s;animation:hop 1.8s ease-in-out infinite}
+.dn.hide{opacity:0;pointer-events:none;transform:translateY(10px)}
+@keyframes hop{50%{translate:0 5px}}
+.ctf{right:14px;top:50%;bottom:auto;transform:translateY(-50%);gap:12px}
+.ctf button{display:flex;flex-direction:column;align-items:center;gap:4px;width:80px;height:auto;border-radius:20px;padding:12px 6px 8px;color:#fff;font:inherit;font-size:12px;font-weight:700;border:2px solid rgba(255,255,255,.7)}
+.ctf svg{width:30px;height:30px}
+@media(max-width:820px){
+  .deco{display:none}
+  .stage{padding:100px 16px 170px}
+  .cb3{min-width:0;width:100%;max-width:340px}
+  .ctf{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);transform:none}
+  .ctf button{width:48px;height:48px;border-radius:50%;padding:0;border:0;justify-content:center}
+  .ctf span{display:none}
+  .top{padding-left:16px;padding-right:16px}
+  .menu{margin-left:auto}
+  .top:not(.sc) nav a:not(.pill),.top nav a:not(.pill){color:var(--ink);text-shadow:none}
+  .top nav a:not(.pill):hover{background:var(--bg)}
+  .top nav .theme{color:var(--ink);border-color:var(--line)}
+  .top #ctnav{margin:4px 0 0}
+  .top nav .pill{text-align:center}
+  .pill.p2{margin-left:0}
+}
+</style>
 </head>
 
 <body>
+<a class="skip" href="#fix">ข้ามไปเนื้อหาหลัก</a>
   <div id="bar" aria-hidden="true"></div><button id="up" type="button" aria-label="กลับขึ้นบน">&uarr;</button>
-  <div class="wrap" id="top">
+  <nav class="side" aria-label="ไปยังส่วนต่าง ๆ">
+  <a class="on" href="#home" data-s="home"><i>🏠</i><span>หน้าหลัก</span></a>
+  <a href="#fix" data-s="fix"><i>🧰</i><span>ตัวช่วย</span></a>
+  <a href="#videos" data-s="videos"><i>▶</i><span>คลิปสอน</span></a>
+  <a href="#guides" data-s="guides"><i>📄</i><span>บทความ</span></a>
+  <a href="#cmds" data-s="cmds"><i>⌨️</i><span>คำสั่ง</span></a>
+  <a href="#faq" data-s="faq"><i>❓</i><span>คำถาม</span></a>
+</nav>
+<button class="dn" id="dn" type="button" aria-label="เลื่อนลง"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="wrap" id="top">
     <header class="top">
       <a class="logo" href="#top" aria-label="คลิกแก้ หน้าแรก"><svg width="34" height="34" viewBox="0 0 34 34"
           aria-hidden="true">
@@ -1204,34 +1347,75 @@
           <path d="M11 8l13 7.5-5.6 1.6 3.4 5.9-2.9 1.7-3.4-5.9L11 23z" fill="#fff" />
           <circle cx="25" cy="9" r="3" fill="#7fd4ff" />
         </svg>คลิกแก้</a>
-      <nav><a href="#fix">ตัวช่วยหาวิธีแก้</a><a href="#videos">คลิปสอน</a><a href="#guides">บทความ</a><a
+      <button class="theme menu" id="menu" type="button" aria-expanded="false" aria-controls="nav">เมนู</button>
+      <nav id="nav"><a href="#fix">ตัวช่วยหาวิธีแก้</a><a href="#videos">คลิปสอน</a><a href="#guides">บทความ</a><a
           href="#cmds">คำสั่ง</a><a href="#faq">คำถามที่พบบ่อย</a><a href="infomation.html"
-          rel="noopener">คลังความรู้</a><button class="theme" id="theme" type="button">โหมดมืด</button></nav>
+          rel="noopener">คลังความรู้</a><button class="theme" id="ctnav" type="button">ติดต่อ</button><button class="theme" id="theme" type="button">โหมดมืด</button><a class="pill p2" href="#fix">เริ่มแก้ปัญหา</a></nav>
     </header>
     <main>
-      <div class="hero">
-        <div>
-          <h1>ปัญหาคอม<br><mark>แก้ได้</mark>ในไม่กี่คลิก</h1>
-          <p class="lead">คู่มือแก้ปัญหา Windows อินเทอร์เน็ต และอุปกรณ์ต่อพ่วง เขียนเป็นภาษาไทยง่าย ๆ ทำตามได้ทีละขั้น
-          </p>
+      <section class="stage" id="home">
+        <div class="sky" aria-hidden="true"><div class="cl c1"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c2"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c3"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div><div class="cl c4"><svg viewBox="0 0 190 80" aria-hidden="true"><g fill="currentColor"><circle cx="50" cy="50" r="26"/><circle cx="92" cy="38" r="32"/><circle cx="135" cy="50" r="26"/><rect x="38" y="50" width="112" height="26" rx="13"/></g></svg></div></div>
+        <div class="grass" aria-hidden="true"><svg viewBox="0 0 1440 170" preserveAspectRatio="none"><path style="fill:var(--g1)" d="M0 70C220 20 440 100 720 62S1180 10 1440 66V170H0Z"/><path style="fill:var(--g2)" d="M0 112C260 70 520 140 820 104S1250 80 1440 116V170H0Z"/></svg></div>
+        <div class="deco dl" aria-hidden="true">
+          <svg viewBox="0 0 320 340">
+            <g class="bob">
+              <rect x="30" y="30" width="230" height="160" rx="18" fill="#2f46ff"/>
+              <rect x="44" y="44" width="202" height="130" rx="10" fill="#e3f4ff"/>
+              <path d="M100 112l30 30 62-66" fill="none" stroke="#2f46ff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="125" y="190" width="40" height="34" fill="#1c2bb8"/>
+              <rect x="85" y="222" width="120" height="14" rx="7" fill="#1c2bb8"/>
+            </g>
+            <g class="bob2">
+              <rect x="232" y="238" width="54" height="80" rx="27" fill="#fff" stroke="#2f46ff" stroke-width="6"/>
+              <path d="M259 238v32" stroke="#2f46ff" stroke-width="6"/>
+              <circle cx="259" cy="252" r="5" fill="#7fd4ff"/>
+            </g>
+            <path d="M40 262l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#fff"/>
+            <circle cx="300" cy="60" r="7" fill="#7fd4ff"/>
+          </svg>
+        </div>
+        <div class="deco dr" aria-hidden="true">
+          <svg viewBox="0 0 320 340">
+            <g class="bob2">
+              <rect x="70" y="50" width="200" height="130" rx="14" fill="#14206b"/>
+              <rect x="82" y="62" width="176" height="106" rx="7" fill="#7fd4ff"/>
+              <path d="M118 108h64M118 128h100" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+              <path d="M40 188h260l-22 34H62z" fill="#2f46ff"/>
+            </g>
+            <g class="bob">
+              <path d="M96 236l44 16v38c0 28-24 44-44 54-20-10-44-26-44-54v-38z" fill="#fff" stroke="#2f46ff" stroke-width="6"/>
+              <path d="M76 292l15 15 29-34" fill="none" stroke="#2f46ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <path d="M270 250l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#fff"/>
+            <circle cx="30" cy="70" r="7" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="stage-in">
+          <p class="kick">คู่มือแก้ปัญหาคอมพิวเตอร์ภาษาไทย</p>
+          <h1 class="big">ปัญหาคอม<br>แก้ได้ในไม่กี่คลิก</h1>
+          <div class="ribbon">เลือกปัญหา แล้วทำตามทีละขั้น</div>
+          <p class="tagl">✦ Windows · อินเทอร์เน็ต · อุปกรณ์ต่อพ่วง ✦</p>
+          <p class="lead2">เขียนเป็นภาษาไทยง่าย ๆ ทำตามได้ทีละขั้น</p>
           <form class="search" id="sf" role="search">
             <input id="q" type="search" placeholder="พิมพ์ปัญหา หรือรหัส error เช่น 0x0000007B" aria-label="ค้นหาปัญหา">
             <button class="go" type="submit">ค้นหา</button>
           </form>
-          <p class="hint">ลองค้นหา: <button type="button" data-q="0x0000007B">0x0000007B</button><button type="button"
-              data-q="0xc000000f">0xc000000f</button><button type="button" data-q="wi-fi">Wi-Fi</button><button
-              type="button" data-q="ช้า">เครื่องช้า</button></p>
+          <p class="hint">ลองค้นหา: <button type="button" data-q="0x0000007B">0x0000007B</button><button type="button" data-q="0xc000000f">0xc000000f</button><button type="button" data-q="wi-fi">Wi-Fi</button><button type="button" data-q="ช้า">เครื่องช้า</button></p>
           <div id="hit" aria-live="polite"></div>
+          <div class="ctas">
+            <a class="cb3 a" href="#fix"><i aria-hidden="true">🧰</i><span><small>เริ่มเลย!!</small><b>แก้ปัญหา</b></span></a>
+            <a class="cb3 b" href="#videos"><i aria-hidden="true">▶</i><span><small>ดูแบบเห็นภาพ!!</small><b>คลิปสอน</b></span></a>
+            <a class="cb3 c" href="infomation.html"><i aria-hidden="true">📚</i><span><small>อ่านก่อนลงมือ!!</small><b>คลังความรู้</b></span></a>
+          </div>
         </div>
-        <aside class="term" aria-hidden="true">
-          <div>$ error 0x0000007B</div>
-          <div class="o">→ หาไดรฟ์ที่ใช้บูตไม่เจอ</div>
-          <div>$ fix --step 1</div>
-          <div class="o">→ ตรวจโหมด SATA ใน BIOS</div>
-          <div>$ fix --step 2</div>
-          <div class="o">→ รัน Startup Repair</div>
-        </aside>
-      </div>
+      </section>
+
+      <section class="stats" aria-label="สรุปเนื้อหาในเว็บ">
+        <div class="st"><b data-k="articles">0</b><span>บทความแก้ปัญหา</span></div>
+        <div class="st"><b data-k="videos">0</b><span>คลิปวิดีโอสอน</span></div>
+        <div class="st"><b data-k="cmds">0</b><span>คำสั่งที่ใช้บ่อย</span></div>
+        <div class="st"><b data-k="faq">0</b><span>คำถามที่พบบ่อย</span></div>
+      </section>
 
       <section class="steps" aria-label="ขั้นตอนการใช้งาน">
         <div class="step"><b>1</b>
@@ -1296,6 +1480,12 @@
           </ul>
         </section>
       </div>
+
+      <section id="news" class="sec">
+        <h2>อัปเดตล่าสุด</h2>
+        <p class="sub">สิ่งใหม่และการปรับปรุงล่าสุดของเว็บไซต์</p>
+        <ol class="tl" id="tl"></ol>
+      </section>
 
       <section id="faq" class="sec">
         <h2>คำถามที่พบบ่อย</h2>
@@ -1418,8 +1608,9 @@
       $("#tabs").querySelectorAll("button").forEach((b, i) => b.onclick = () => { cur = cats[i]; renderTabs(); renderList() });
     }
     function img(a) { return /^https:\/\//.test(a.img || "") ? `<figure class="shot"><img src="${esc(a.img).replace(/"/g, "&quot;")}" alt="${esc(a.t).replace(/"/g, "&quot;")}" loading="lazy" decoding="async" tabindex="0" role="button" aria-label="ดูรูปขยาย"></figure>` : "" }
+    const CI = { "ฮาร์ดแวร์": "🔌", "Windows": "🪟", "เครือข่าย": "📶", "อุปกรณ์ต่อพ่วง": "🖨️", "ความปลอดภัย": "🛡️" };
     function card(a, i) {
-      return `<details id="a${i}"><summary>${esc(a.t)} <span class="lv l${a.l}">${LV[a.l]}</span></summary><div class="body">${img(a)}<ol>${a.s.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div></details>`;
+      return `<details id="a${i}"><summary><span class="ico" aria-hidden="true">${CI[a.c] || "🧩"}</span>${esc(a.t)} <span class="lv l${a.l}">${LV[a.l]}</span></summary><div class="body">${img(a)}<ol>${a.s.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div></details>`;
     }
     function renderList() {
       $("#list").innerHTML = ARTICLES.map((a, i) => [a, i]).filter(([a]) => cur === "ทั้งหมด" || a.c === cur).map(([a, i]) => card(a, i)).join("");
@@ -1549,7 +1740,81 @@
       }).catch(() => { });
     })();
 
-    /* theme */
+    (function(){
+  /* ตั้งค่าช่องทางติดต่อที่นี่ (เว้นว่างไว้ = แสดงว่ายังไม่ได้ตั้งค่า) */
+  const CONTACT={
+    auto:true,                 /* true = เด้ง popup เองหนึ่งครั้งต่อการเปิดเบราว์เซอร์หนึ่งรอบ, false = ไม่เด้งเอง */
+    line:{id:"",url:""},       /* เช่น id:"@yourid", url:"https://line.me/R/ti/p/@yourid" */
+    discord:{url:""}           /* เช่น url:"https://discord.gg/xxxxxxx" */
+  };
+  const safe=u=>/^https:\/\//.test(u||"");
+  const box=document.createElement("div");box.className="ct";box.setAttribute("role","dialog");box.setAttribute("aria-modal","true");box.setAttribute("aria-labelledby","cth");box.setAttribute("aria-hidden","true");
+  box.innerHTML='<div class="ctm"><button class="ctx" type="button" aria-label="ปิด">×</button><h2 id="cth"><span class="live" aria-hidden="true"></span>ติดตามอัพเดทข่าวสารแบบเรียลไทม์</h2><p class="s">ถามปัญหา แจ้งข้อผิดพลาด หรือพูดคุยกับเรา</p>'
+   +'<div class="cc l"><i><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></i><div><b>LINE</b><small id="cls"></small></div><a class="cb" id="cla" target="_blank" rel="noopener noreferrer">เพิ่มเพื่อน</a></div>'
+   +'<div class="cc d"><i><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></i><div><b>Discord</b><small id="cds"></small></div><a class="cb" id="cda" target="_blank" rel="noopener noreferrer">เข้าร่วม</a></div></div>';
+  document.body.appendChild(box);
+  function wire(a,s,url,txt){if(safe(url)){a.href=url;a.removeAttribute("aria-disabled");s.textContent=txt}else{a.removeAttribute("href");a.setAttribute("aria-disabled","true");s.textContent="ยังไม่ได้ตั้งค่า"}}
+  wire(box.querySelector("#cla"),box.querySelector("#cls"),CONTACT.line.url,CONTACT.line.id||"เพิ่มเพื่อนใน LINE");
+  wire(box.querySelector("#cda"),box.querySelector("#cds"),CONTACT.discord.url,"เข้าร่วมเซิร์ฟเวอร์ Discord");
+  let last=null;
+  function key(e){if(e.key==="Escape")close()}
+  function open(){last=document.activeElement;box.classList.add("on");box.setAttribute("aria-hidden","false");document.addEventListener("keydown",key);box.querySelector(".ctx").focus();try{sessionStorage.setItem("ct_seen","1")}catch(e){}}
+  function close(){box.classList.remove("on");box.setAttribute("aria-hidden","true");document.removeEventListener("keydown",key);if(last&&last.focus)last.focus({preventScroll:true})}
+  box.addEventListener("click",e=>{if(e.target===box||e.target.closest(".ctx"))close()});
+  const fb=document.createElement("div");fb.className="ctf";fb.innerHTML='<button class="l" type="button" aria-label="ติดต่อทาง LINE" title="LINE"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg><span>LINE</span></button><button class="d" type="button" aria-label="เข้าร่วม Discord" title="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>Discord</span></button>';fb.querySelectorAll("button").forEach(b=>b.onclick=open);document.body.appendChild(fb);
+  const nb=document.getElementById("ctnav");if(nb)nb.onclick=open;
+  let seen=false;try{seen=sessionStorage.getItem("ct_seen")==="1"}catch(e){}
+  if(CONTACT.auto&&!seen&&(safe(CONTACT.line.url)||safe(CONTACT.discord.url)))setTimeout(()=>{if(!box.classList.contains("on"))open()},6000);
+})();
+
+(function(){
+  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* เมนูมือถือ */
+  const mb=$("#menu"),nv=$("#nav");
+  function setM(o){nv.classList.toggle("open",o);mb.setAttribute("aria-expanded",String(o))}
+  mb.onclick=e=>{e.stopPropagation();setM(!nv.classList.contains("open"))};
+  nv.addEventListener("click",e=>{if(e.target.closest("a,#ctnav"))setM(false)});
+  document.addEventListener("click",e=>{if(!e.target.closest(".top"))setM(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setM(false)});
+  /* ตัวเลขสรุป: นับจากเนื้อหาจริงในหน้า */
+  const counts={articles:$("#list").children.length,videos:$("#vlist").children.length,cmds:$("#cmdlist").children.length,faq:document.querySelectorAll("#faq details").length};
+  document.querySelectorAll(".st b").forEach(b=>{
+    const n=counts[b.dataset.k]||0;
+    const run=()=>{const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/900);b.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)};
+    if(rm||!("IntersectionObserver" in window)){b.textContent=n;return}
+    const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){run();io.disconnect()}},{threshold:.5});io.observe(b);
+  });
+  /* อัปเดตล่าสุด: แก้รายการนี้ได้ {tag: "ใหม่" หรือ "ปรับปรุง", t: ข้อความ, d: วันที่ (เว้นว่างได้)} */
+  const UPDATES=[
+    {tag:"ใหม่",t:"เพิ่มคลังความรู้พื้นฐานคอมพิวเตอร์ พร้อมตารางเปรียบเทียบ SSD/HDD และเช็กลิสต์ดูแลเครื่อง",d:""},
+    {tag:"ใหม่",t:"เพิ่มคำสั่งที่ใช้บ่อยพร้อมปุ่มคัดลอก และคีย์ลัดที่ควรรู้",d:""},
+    {tag:"ใหม่",t:"เพิ่มช่องทางติดตามข่าวสารผ่าน LINE และ Discord",d:""},
+    {tag:"ปรับปรุง",t:"บทความรองรับการใส่รูป และกดดูรูปขยายได้",d:""},
+    {tag:"ปรับปรุง",t:"เพิ่มตัวนับยอดเข้าชมและหน้าสถิติ",d:""}
+  ];
+  const tl=$("#tl");
+  UPDATES.forEach(u=>{
+    const li=document.createElement("li"),b=document.createElement("span"),t=document.createElement("span");
+    b.className="nb"+(u.tag==="ใหม่"?"":" u");b.textContent=u.tag;t.textContent=u.t;
+    li.append(b,t);
+    if(u.d){const d=document.createElement("small");d.textContent=u.d;li.appendChild(d)}
+    tl.appendChild(li);
+  });
+})();
+
+(function(){
+  const top=document.querySelector(".top"),dn=$("#dn");
+  function sc(){top.classList.toggle("sc",scrollY>40);dn.classList.toggle("hide",scrollY>200)}
+  addEventListener("scroll",sc,{passive:true});sc();
+  dn.onclick=()=>{const t=document.querySelector(".stats")||document.getElementById("fix");t.scrollIntoView({behavior:"smooth"})};
+  const links=[...document.querySelectorAll(".side a")],map=new Map(links.map(a=>[a.dataset.s,a]));
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("on"));const a=map.get(e.target.id);if(a)a.classList.add("on")}}),{rootMargin:"-40% 0px -55% 0px"});
+    links.forEach(a=>{const t=document.getElementById(a.dataset.s);if(t)io.observe(t)});
+  }
+})();
+
+/* theme */
     $("#theme").onclick = () => {
       const r = document.documentElement;
       const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
